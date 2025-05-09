@@ -1,0 +1,54 @@
+<div class="product-list-container container-fluid mt-3"> <app-carousel></app-carousel>
+
+  <div class="row">
+    <div class="col-lg-3">
+      <app-productfilter (filtersChanged)="onSidebarFiltersChanged($event)"></app-productfilter>
+    </div>
+
+    <div class="col-lg-9">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3">
+        <div class="search-bar-container mb-2 mb-md-0 me-md-3 flex-grow-1">
+          <form (submit)="$event.preventDefault(); onSearchTermChange()">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Escribe aquí..."
+                     [(ngModel)]="searchTerm" name="searchTerm" (input)="onSearchTermChange()">
+              <button class="btn btn-outline-secondary" type="submit">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="tag-filters-container">
+          <button *ngFor="let tag of tagFilters"
+                  type="button" class="btn btn-sm me-2 mb-1 tag-filter-button"
+                  [class.btn-dark]="tag.active"
+                  [class.btn-outline-secondary]="!tag.active"
+                  (click)="toggleTagFilter(tag)">
+            {{ tag.name }}
+          </button>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4"> <div *ngFor="let product of paginatedProducts" class="col">
+          <app-product-card [product]="product"></app-product-card>
+        </div>
+      </div>
+      
+      <div *ngIf="paginatedProducts.length === 0 && filteredProducts.length === 0 && allProducts.length > 0" class="text-center p-5">
+        <h5>No se encontraron productos que coincidan con tu búsqueda o filtros.</h5>
+        <p class="text-muted">Intenta ajustar los términos de búsqueda o los filtros aplicados.</p>
+      </div>
+       <div *ngIf="allProducts.length === 0" class="text-center p-5">
+        <h5>No hay productos para mostrar.</h5>
+      </div>
+
+
+      <app-pagination [currentPage]="currentPage"
+                      [totalItems]="totalFilteredItems"
+                      [itemsPerPage]="itemsPerPage"
+                      (pageChanged)="onPageChanged($event)">
+      </app-pagination>
+    </div>
+  </div>
+</div>

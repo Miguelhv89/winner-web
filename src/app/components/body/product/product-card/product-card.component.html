@@ -1,0 +1,14 @@
+<div class="card h-100 app-product-card">
+    <div class="card-img-top-placeholder">
+        <img *ngIf="product.imageUrl" [src]="product.imageUrl" class="card-img-top" [alt]="product.name">
+        <div *ngIf="!product.imageUrl" class="placeholder-content">
+            <i class="bi bi-image placeholder-icon"></i>
+            <span>{{ product.placeholderText || product.name }}</span>
+        </div>
+    </div>
+    <div class="card-body text-center">
+        <h6 class="card-title mb-1">{{ product.name }}</h6>
+        <a *ngIf="product.infoLink" [href]="product.infoLink" class="btn btn-link btn-sm p-0 product-info-link">Info</a>
+        <span *ngIf="!product.infoLink" class="text-muted small">Info</span>
+    </div>
+</div>

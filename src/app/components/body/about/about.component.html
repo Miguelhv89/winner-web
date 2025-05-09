@@ -1,0 +1,18 @@
+<section class="container-fluid py-md-5 py-1 px-5">
+    <div *ngFor="let info of infoPartners; let i = index" class="row align-items-center mb-md-5 mb-3">
+        <div class="col-md-6" [ngClass]="{'order-md-last': info.imagePosition !== 'right'}">
+            <div class="image-container">
+                <img *ngIf="info.imageUrl" [src]="info.imageUrl" [alt]="info.title" class="img-fluid">
+            </div>
+        </div>
+
+        <div class="col-md-6" [ngClass]="{'order-md-first': info.imagePosition !== 'right'}">
+            <h3 class="mt-md-4 mt-2">{{ info.title }}</h3>
+            <p class="info-year">{{ info.yearFundation }}</p>
+            <p class="info-content">{{ info.description }}</p>
+            <div class="info-content">
+                <p>{{ info.content }}</p>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,43 @@
+.app-product-filters {
+    border: 1px solid var(--border-color, #dee2e6);
+    padding: var(--spacing-sm, 1rem);
+    border-radius: var(--border-radius-md, 0.5rem);
+    background-color: var(--background-color, #fff);
+}
+
+.app-product-filters h5 {
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color);
+}
+
+.filter-group h6 {
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-xs, 0.5rem);
+    font-size: 0.95rem;
+}
+
+.form-check {
+    margin-bottom: var(--spacing-xs, 0.5rem);
+}
+
+.form-check-label small {
+    font-size: var(--font-size-sm, 0.875rem);
+}
+
+.applied-filter-tag {
+    font-size: 0.8em;
+    padding: 0.4em 0.6em;
+    display: inline-flex;
+    align-items: center;
+}
+
+.applied-filter-tag .btn-close {
+    font-size: 0.6em;
+    /* Hacer el botón de cierre más pequeño */
+    padding: 0.2em;
+    opacity: 0.8;
+}
+
+.applied-filter-tag .btn-close:hover {
+    opacity: 1;
+}

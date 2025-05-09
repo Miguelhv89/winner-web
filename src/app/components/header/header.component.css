@@ -1,0 +1,33 @@
+.app-header__logo {
+    max-height: 60px;
+}
+.form-control {
+    border-radius: var(--header-size-radius);
+    border: none;
+    box-shadow: none;
+}
+
+.form-control::placeholder {
+    color: #6c757d;
+}
+
+.search-form button {
+    border-radius: 0 var(--header-size-radius) var(--header-size-radius) 0 !important;    
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+}
+
+.search-form button:hover {
+    background-color: #f0f0f0;
+    color: var(--primary-color);
+}
+
+a {
+    color: var(--text-light);
+    font-size: var(--header-size-icon);
+}
+
+button i {
+    font-size: calc(var(--header-size-icon) - 7px);
+}

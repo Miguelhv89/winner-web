@@ -1,0 +1,20 @@
+<section class="banner mb-5">
+    <img src="images/banner.png" alt="imagen institucional" class="img-fluid" id="banner">
+</section>
+
+<section class="brand">
+    <h1 class="mb-4">Nuestras Marcas</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-12" *ngFor="let brand of list_img_brand">
+            <img src="{{brand.src}}" alt="{{brand.alt}}" class="img-fluid">
+        </div>
+    </div>
+</section>
+<section class="license">
+    <h1 class="mb-4">Nuestras Licencias</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-12" *ngFor="let item of list_img">
+            <img src="{{item.src}}" alt="{{item.alt}}" class="img-fluid">
+        </div>
+    </div>
+</section>

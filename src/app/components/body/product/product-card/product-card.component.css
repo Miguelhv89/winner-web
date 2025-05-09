@@ -1,0 +1,63 @@
+.app-product-card {
+    border: 1px solid var(--border-color, #dee2e6);
+    border-radius: var(--border-radius-md, 0.5rem);
+    transition: box-shadow var(--transition-speed, 0.3s) var(--transition-easing, ease-in-out);
+}
+
+.app-product-card:hover {
+    box-shadow: var(--box-shadow-md, 0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.card-img-top-placeholder {
+    height: 200px;
+    /* Altura fija para la imagen/placeholder */
+    background-color: var(--card-background, #f8f9fa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    border-top-left-radius: var(--border-radius-md, 0.5rem);
+    border-top-right-radius: var(--border-radius-md, 0.5rem);
+}
+
+.card-img-top-placeholder img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    /* o 'cover' */
+}
+
+.card-img-top-placeholder .placeholder-content {
+    padding: var(--spacing-sm, 1rem);
+    color: #6c757d;
+}
+
+.card-img-top-placeholder .placeholder-icon {
+    font-size: 2.5rem;
+    /* Anula el 'i' global si es necesario */
+    display: block;
+    margin-bottom: var(--spacing-xs, 0.5rem);
+}
+
+.card-body {
+    padding: var(--spacing-xs, 0.5rem) var(--spacing-sm, 1rem);
+    /* Padding más pequeño */
+}
+
+.card-title {
+    font-size: 0.95rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color);
+}
+
+.product-info-link {
+    font-size: var(--font-size-sm, 0.875rem);
+    color: var(--link-color);
+    /* Tu variable de color de enlace */
+    text-decoration: none;
+}
+
+.product-info-link:hover {
+    text-decoration: underline;
+}

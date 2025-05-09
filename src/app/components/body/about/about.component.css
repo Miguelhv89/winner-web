@@ -1,0 +1,32 @@
+.image-container {
+    background-color: var(--card-background);
+    /* border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+    max-height: 350px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.image-container img {
+    max-width: 100%;
+    width: 100%;        /*Comentar si no se quiere obligar el ancho*/
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+}
+
+.info-year {
+    font-size: calc(var(--font-size-sm) + 6px);
+    color: var(--tertiary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.info-content {
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+    line-height: 1.4;
+}

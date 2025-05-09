@@ -1,0 +1,46 @@
+<footer>
+    <section class="footer-contact" [ngClass]="{'bg-primary': pageHome, 'text-white': pageHome, 'footer-contact-secondary': !pageHome}">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-12 mb-md-0 mb-3" [ngClass]="{'text-center': pageHome}">
+                    <img class="mb-3" src="images/logo.png" alt="Winner Trading Logo">
+                    <ul class="list-inline mb-0 social-icons">
+                        <li class="list-inline-item">
+                            <a href="#" target="_blank" aria-label="Twitter">
+                                <i class="bi bi-twitter-x"></i> </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" target="_blank" aria-label="Instagram">
+                                <i class="bi bi-instagram"></i> </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" target="_blank" aria-label="Youtube">
+                                <i class="bi bi-youtube"></i> </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" target="_blank" aria-label="LinkedIn">
+                                <i class="bi bi-linkedin"></i> </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-5 col-sm-4 col-12 align-items-center d-flex flex-column">
+                    <ul>
+                        <li><a routerLink="/" class="footer-link">Inicio</a></li>
+                        <li><a routerLink="/productos" class="footer-link">Productos</a></li>
+                        <li><a routerLink="/nosotros" class="footer-link">Nosotros</a></li>
+                        <li><a routerLink="/contacto" class="footer-link">Contáctanos</a></li>
+                        <li><a href="#" class="footer-link">Catálogo 2025</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+    </section>
+    <section class="author" [ngClass]="{'bg-primary': !pageHome, 'text-white': !pageHome}">
+        <div class="container">
+            <div class="text-center">
+                Winner Trading S.A. - Todos los derechos reservados - 2025
+            </div>
+        </div>
+    </section>
+</footer>

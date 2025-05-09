@@ -1,0 +1,16 @@
+<div class="chat-container" [hidden]="isHidden" >
+    <div class="info-icon">
+        <i class="bi bi-info-circle"></i>
+    </div>
+    <div class="chat-section">
+        <div class="chat-header">
+            <h6>Chatea con nosotros.</h6>
+            <span class="close-icon" (click)="isHidden = !isHidden" >✖</span>
+        </div>
+        <div class="chat-body">
+            <input type="text" placeholder="Escribe tu mensaje..." class="message-input" [(ngModel)]="message"
+                (keyup.enter)="sendMessage()">
+            <a class="send-button" (click)="sendMessage()">Enviar</a>
+        </div>
+    </div>
+</div>

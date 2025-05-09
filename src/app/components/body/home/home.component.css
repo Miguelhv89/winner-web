@@ -1,0 +1,26 @@
+.banner img {
+    width: 100%;
+}
+
+.brand, .license, .footer {     
+    padding: 0 var(--spacing-lg);
+}
+
+.brand img, .license img {     
+    width: 95%;
+    margin-bottom: var(--spacing-md) !important;
+}
+
+@media screen and (max-width: 768px) {
+    .brand img, .license img {     
+        width: 100%;
+        margin-bottom: var(--spacing-md) !important;
+        padding: 0 !important;
+    }
+    .social-icons a {
+        font-size: calc(var(--header-size-icon) * 0.8);
+    }
+    .footer-link {
+        font-size: var(--font-size-md);    
+    }
+}
