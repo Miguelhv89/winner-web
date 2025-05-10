@@ -1,7 +1,7 @@
 <nav aria-label="Navegación de productos" *ngIf="totalPages > 1"
     class="app-pagination d-flex justify-content-center mt-4">
     <ul class="pagination">
-        <li class="page-item" [class.disabled]="currentPage === 1">
+        <li class="page-item sequential" [class.disabled]="currentPage === 1">
             <a class="page-link" href="javascript:void(0)" (click)="selectPage(currentPage - 1)" aria-label="Anterior">
                 <span aria-hidden="true">&laquo;</span> Previous
             </a>
@@ -25,7 +25,7 @@
             <a class="page-link" href="javascript:void(0)" (click)="selectPage(totalPages)">{{ totalPages }}</a>
         </li>
 
-        <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <li class="page-item sequential" [class.disabled]="currentPage === totalPages">
             <a class="page-link" href="javascript:void(0)" (click)="selectPage(currentPage + 1)" aria-label="Siguiente">
                 Next <span aria-hidden="true">&raquo;</span>
             </a>

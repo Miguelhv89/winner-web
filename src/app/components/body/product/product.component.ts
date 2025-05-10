@@ -40,7 +40,7 @@ export class ProductComponent {
 
   // Paginación
   currentPage: number = 1;
-  itemsPerPage: number = 6; // 3 columnas x 2 filas
+  itemsPerPage: number = 6;
   totalFilteredItems: number = 0;
 
   // Filtros laterales
@@ -49,7 +49,7 @@ export class ProductComponent {
   constructor() { }
 
   ngOnInit(): void {
-    // Simular carga de productos
+    // Carga de productos de prueba
     this.allProducts = Array.from({ length: 50 }, (_, i) => ({ // 50 productos de ejemplo
       id: `prod${i + 1}`,
       name: `Producto ${i + 1}`,
@@ -60,51 +60,56 @@ export class ProductComponent {
     this.applyAllFilters();
   }
 
+  // Funcion cuando se escribe en la caja de texto de busqueda
   onSearchTermChange(): void {
-    this.currentPage = 1; // Resetear a la primera página en nueva búsqueda
+    this.currentPage = 1;
     this.applyAllFilters();
   }
 
+  // Cuando se filtran los tag de la parte superior derecha
   toggleTagFilter(tag: TagFilter): void {
     tag.active = !tag.active;
     this.currentPage = 1;
     this.applyAllFilters();
   }
 
+  // Funcion de los filtros hechos desde la barra izquierda
   onSidebarFiltersChanged(filters: any): void {
     this.activeSidebarFilters = filters;
     this.currentPage = 1;
     this.applyAllFilters();
   }
 
+  // Para esta etapa se esta haciendo el filtro o logica en esta parte
+  // cuando defina esto se podra cambiar ya que quizas viene filtrado desde el backend
   applyAllFilters(): void {
     let products = [...this.allProducts];
 
-    // 1. Aplicar búsqueda por término
+    // 1. busqueda por la caja de texto
     if (this.searchTerm) {
       products = products.filter(p =>
         p.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     }
 
-    // 2. Aplicar filtros de tags (ejemplo muy básico, necesitarías mapear tags a propiedades del producto)
+    // 2. Filtros de tags
     const activeTags = this.tagFilters.filter(t => t.active).map(t => t.id);
     if (activeTags.length > 0) {
       // Esta lógica dependerá de cómo tus productos se relacionan con los tags
       // Ejemplo: si el producto tiene una propiedad 'tags: string[]'
       // products = products.filter(p => p.tags && activeTags.some(at => p.tags.includes(at)));
-      // Por ahora, solo filtramos si 'nuevo' está activo y es el producto 1 (ejemplo tonto)
+      // Por ahora, solo filtramos si 'nuevo' está activo y es el producto 1
       if (activeTags.includes('nuevo')) {
         products = products.filter(p => p.id === 'prod1' || Math.random() > 0.3); // Ejemplo aleatorio
       }
     }
 
-    // 3. Aplicar filtros de la barra lateral (ejemplo muy básico)
+    // 3. Aplicar filtros de la barra izquierda
     if (this.activeSidebarFilters.color && this.activeSidebarFilters.color.length > 0) {
       // Ejemplo: si el producto tiene una propiedad 'color: string'
+      // Esto se definira cuando tengan la estructura de su servicio
       // products = products.filter(p => this.activeSidebarFilters.color.includes(p.color));
     }
-    // ... aplicar otros filtros de activeSidebarFilters
 
     this.filteredProducts = products;
     this.totalFilteredItems = this.filteredProducts.length;

@@ -10,8 +10,8 @@ import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/
 export class PaginationComponent {
   @Input() currentPage: number = 1;
   @Input() totalItems: number = 0;
-  @Input() itemsPerPage: number = 6; // Como se ven 6 productos por página
-  @Input() pagesToShow: number = 5; // Cuántos números de página mostrar a la vez
+  @Input() itemsPerPage: number = 6;
+  @Input() pagesToShow: number = 5; // Numeros de páginas a mostrar a la vez
 
   @Output() pageChanged = new EventEmitter<number>();
 

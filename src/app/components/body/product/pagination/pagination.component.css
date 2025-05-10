@@ -1,21 +1,25 @@
 .app-pagination .page-item.active .page-link {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+    background-color: var(--background-tertiary-color);
+    border-color: var(--background-tertiary-color);
     color: var(--text-light);
 }
 
 .app-pagination .page-link {
-    color: var(--primary-color);
+    color: var(--text-color);
 }
 
 .app-pagination .page-link:hover {
-    color: var(--accent-color);
-    /* O un tono más oscuro de --primary-color */
+    color: var(--primary-color);
 }
 
 .app-pagination .page-item.disabled .page-link {
     color: #6c757d;
-    /* Color muted de Bootstrap */
     background-color: var(--card-background);
     border-color: var(--border-color);
+}
+
+@media screen and (max-width: 768px) {
+    .sequential {
+        display: none !important;
+    }    
 }

@@ -1,19 +1,18 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Para ngModel
-
+// Se crean interfaces de pruebas
 export interface FilterOption {
   id: string | number;
   name: string;
   checked: boolean;
-  description?: string; // Para los labels con descripción
+  description?: string;
 }
 
 export interface FilterGroup {
-  key: string; // ej: 'label', 'color', 'cantidad'
+  key: string;
   groupName: string;
   options: FilterOption[];
-  type: 'checkbox' | 'radio';
 }
 
 @Component({
@@ -26,7 +25,7 @@ export class ProductfilterComponent {
   @Output() filtersChanged = new EventEmitter<any>();
 
   appliedFiltersDisplay: { group: string, name: string }[] = [
-    { group: 'Categoría', name: 'Perfumería' }, // Ejemplo de filtro activo
+    { group: 'Categoría', name: 'Perfumería' },    
     { group: 'Cantidad', name: '250ml' },
     { group: 'Público', name: 'Niños' },
   ];
@@ -40,7 +39,6 @@ export class ProductfilterComponent {
       {
         key: 'label',
         groupName: 'Label',
-        type: 'checkbox',
         options: [
           { id: 'label1', name: 'Label', description: 'Description', checked: true },
           { id: 'label2', name: 'Label', description: 'Description', checked: false },
@@ -50,7 +48,6 @@ export class ProductfilterComponent {
       {
         key: 'color',
         groupName: 'Color',
-        type: 'checkbox',
         options: [
           { id: 'azul', name: 'Azul', checked: true },
           { id: 'rojo', name: 'Rojo', checked: true },
@@ -60,36 +57,37 @@ export class ProductfilterComponent {
       {
         key: 'cantidad',
         groupName: 'Cantidad',
-        type: 'checkbox',
         options: [
           { id: '250ml', name: '250 ml', checked: true },
           { id: '120ml', name: '120 ml', checked: true },
           { id: '50ml', name: '50 ml', checked: false },
         ]
       }
-      // Añade más grupos de filtros
     ];
   }
 
+  // Se dispara al hacer cambios de estado de los checkbox, obtiene solo los filtros con check true
   onFilterChange(): void {
     const activeFilters: any = {};
+    this.appliedFiltersDisplay = [];
     this.filterGroups.forEach(group => {
       activeFilters[group.key] = group.options
         .filter(option => option.checked)
-        .map(option => option.id);
+        .map(option => {
+          this.appliedFiltersDisplay.push({ group: group.groupName, name: option.name })
+          return option.id;
+        });
     });
+    // Se emite la lista para poder hacer el filtrado en el componente padre product.component
     this.filtersChanged.emit(activeFilters);
-    // Aquí también podrías actualizar `appliedFiltersDisplay` basado en los `activeFilters`
   }
 
-  removeAppliedFilter(filterToRemove: { group: string, name: string }, index: number): void {
-    this.appliedFiltersDisplay.splice(index, 1);
-    // Aquí deberías desmarcar el checkbox correspondiente en `filterGroups` y llamar a `onFilterChange`
-    // Esto requiere una lógica más compleja para mapear `filterToRemove` de vuelta a `filterGroups`
-    // Ejemplo simplificado:
+  // Logica cuando se quita un tag de los filtros que se encuentran en la parte superior
+  // Se envia el indice por si mas adelante es necesario
+  removeAppliedFilter(filterToRemove: { group: string, name: string }, index: number): void {    
     this.filterGroups.forEach(group => {
       group.options.forEach(option => {
-        if (option.name === filterToRemove.name /* && group.groupName === filterToRemove.group (si tienes el groupName) */) {
+        if (option.name === filterToRemove.name) {
           option.checked = false;
         }
       });

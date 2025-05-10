@@ -23,15 +23,17 @@
 /* Declaración de variables (Custom Properties) basadas en la imagen */
 :root {
     /* Colores principales */
-    --primary-color: #0F4583;       /* Azul oscuro del encabezado y pie */
-    --secondary-color: #fff;        /* Blanco del fondo principal */
-    --tertiary-color: #757575;      /* Fondo claro para secciones */
-    --accent-color: #e6007e;        /* Rosa de la sección NOX */
-    --text-color: #1E1E1E;          /* Negro para texto principal */
-    --text-light: #ffffff;          /* Blanco para texto en encabezado/pie */
-    --link-color: #6C8EFF;          /* Azul claro para enlaces */
-    --background-color: #ffffff;    /* Fondo general */
-    --footer-background: #0F4583;   /* Fondo del pie */
+    --primary-color: #0F4583;               /* Azul oscuro del encabezado y pie */
+    --secondary-color: #fff;                /* Blanco del fondo principal */
+    --tertiary-color: #757575;              /* Fondo claro para secciones */
+    --accent-color: #e6007e;                /* Rosa de la sección NOX */
+    --text-color: #1E1E1E;                  /* Negro para texto principal */
+    --text-light: #ffffff;                  /* Blanco para texto en encabezado/pie */
+    --link-color: #1E1E1E;                  /* Color oscuro para enlaces */
+    --link-color-menu: #6C8EFF;                  /* Azul claro para enlaces */
+    --background-color: #ffffff;            /* Fondo general */
+    --background-secondary-color: #f8f9fa;  /* Fondo Tags, Btn Tag inactivo, imagenes */
+    --background-tertiary-color: #1E1E1E;   /* Fondo Btn tags activo, check */
 
     /* Tipografía */
     --font-family: 'Montserrat Regular';
@@ -139,6 +141,11 @@ h4, h5, h6 {
 
 .hidden {
     display: none !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--background-tertiary-color);
+    border-color: var(--background-tertiary-color);
 }
 
 @media screen and (max-width: 768px) {

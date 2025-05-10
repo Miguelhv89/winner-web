@@ -2,7 +2,7 @@
     line-height: 61px;
 }
 .not-home-style {
-    background-color: var(--footer-background);
+    background-color: var(--primary-color);
     color: var(--text-light);
 }
 

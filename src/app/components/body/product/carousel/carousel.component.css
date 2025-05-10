@@ -41,3 +41,18 @@
 .carousel-indicators button {
     background-color: var(--primary-color);
 }
+
+@media screen and (max-width: 768px) {
+    .app-product-carousel .carousel-item {
+        min-height: 150px !important;
+        max-height: 250px !important;
+    }
+
+    .app-product-carousel .carousel-image-placeholder {
+        min-height: 150px;
+    }
+
+    .app-product-carousel .carousel-image-placeholder img {
+        max-height: 250px !important;
+    }
+}

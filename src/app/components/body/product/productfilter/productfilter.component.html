@@ -3,9 +3,9 @@
 
     <div class="applied-filters mb-3">
         <span *ngFor="let filter of appliedFiltersDisplay; let i = index"
-            class="badge bg-primary text-light me-1 mb-1 applied-filter-tag">
+            class="me-1 mb-1 applied-filter-tag">
             {{ filter.name }}
-            <button type="button" class="btn-close btn-close-white ms-1" aria-label="Eliminar filtro"
+            <button type="button" class="btn-close ms-2" aria-label="Eliminar filtro"
                 (click)="removeAppliedFilter(filter, i)"></button>
         </span>
     </div>

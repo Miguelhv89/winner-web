@@ -6,7 +6,7 @@
             <span>{{ product.placeholderText || product.name }}</span>
         </div>
     </div>
-    <div class="card-body text-center">
+    <div class="card-body">
         <h6 class="card-title mb-1">{{ product.name }}</h6>
         <a *ngIf="product.infoLink" [href]="product.infoLink" class="btn btn-link btn-sm p-0 product-info-link">Info</a>
         <span *ngIf="!product.infoLink" class="text-muted small">Info</span>

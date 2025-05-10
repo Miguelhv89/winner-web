@@ -16,12 +16,12 @@
 }
 
 .menu-container .nav-link.active {
-    background-color: var(--link-color);
+    background-color: var(--link-color-menu);
     color: var(--text-color) !important;
 }
 
 .menu-container .nav-link:not(.active):hover {
-    background-color: var(--link-color);
+    background-color: var(--link-color-menu);
     color: var(--text-color) !important;
 }
 

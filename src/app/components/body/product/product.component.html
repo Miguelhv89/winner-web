@@ -1,12 +1,17 @@
-<div class="product-list-container container-fluid mt-3"> <app-carousel></app-carousel>
+<div class="product-list-container container-fluid mt-md-3 mt-1">
+  <!-- Carrousel -->
+  <app-carousel></app-carousel>
 
   <div class="row">
     <div class="col-lg-3">
       <app-productfilter (filtersChanged)="onSidebarFiltersChanged($event)"></app-productfilter>
     </div>
 
-    <div class="col-lg-9">
+    <!-- Contenido -->
+    <div class="col-lg-9 mt-md-0 mt-4">
+      <!-- Barra de busqueda y los tags -->
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3">
+        <!-- Busqueda -->
         <div class="search-bar-container mb-2 mb-md-0 me-md-3 flex-grow-1">
           <form (submit)="$event.preventDefault(); onSearchTermChange()">
             <div class="input-group">
@@ -19,9 +24,10 @@
           </form>
         </div>
 
+        <!-- Tags -->
         <div class="tag-filters-container">
           <button *ngFor="let tag of tagFilters"
-                  type="button" class="btn btn-sm me-2 mb-1 tag-filter-button"
+                  type="button" class="btn btn-sm me-2 mb-1"
                   [class.btn-dark]="tag.active"
                   [class.btn-outline-secondary]="!tag.active"
                   (click)="toggleTagFilter(tag)">
@@ -29,12 +35,15 @@
           </button>
         </div>
       </div>
+      <!-- Fin Barra de busqueda y los tags -->
 
+      <!-- Listado de los Cards 3 por 2 -->
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4"> <div *ngFor="let product of paginatedProducts" class="col">
           <app-product-card [product]="product"></app-product-card>
         </div>
       </div>
       
+      <!-- Mensajes en caso no existan productos encontrados -->
       <div *ngIf="paginatedProducts.length === 0 && filteredProducts.length === 0 && allProducts.length > 0" class="text-center p-5">
         <h5>No se encontraron productos que coincidan con tu búsqueda o filtros.</h5>
         <p class="text-muted">Intenta ajustar los términos de búsqueda o los filtros aplicados.</p>
@@ -43,7 +52,7 @@
         <h5>No hay productos para mostrar.</h5>
       </div>
 
-
+      <!-- Area de la paginación -->
       <app-pagination [currentPage]="currentPage"
                       [totalItems]="totalFilteredItems"
                       [itemsPerPage]="itemsPerPage"
