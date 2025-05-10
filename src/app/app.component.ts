@@ -12,7 +12,7 @@ import { ChatComponent } from './components/chat/chat.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'winner-web';
+  title = 'Winner Trading';
   isHome: boolean = false;
 
   constructor(private router: Router) {
